@@ -4,14 +4,14 @@ import NavBar from './components/NavBar';
 import TextBox from './components/TextBox';
 import Alert from './components/Alert';
 import { useState } from 'react';
-import About from './components/About';
+// import About from './components/About';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 function App() {
   const[BarMode , setBarMode] = useState("light");
@@ -44,18 +44,19 @@ function App() {
   }
   return (
     <>
-      <Router>
+      {/* <Router> */}
       <NavBar home = "Home" title = "TextUtills" aboutText = "About" mode = {BarMode} togglemode = {togglemode} textMode = {text}></NavBar>
       <Alert alert = {alert}></Alert>
       <div className="container my-3">
-      <Routes>
+      {/* <Routes>
             <Route path="/about" element = {<About></About>} >
-            </Route>
-            <Route path="/" element = {<TextBox showAlert = {showAlert} heading="Write your notes here" mode = {BarMode}></TextBox> }>  
-            </Route>
-      </Routes>
+            </Route> */}
+            {/* <Route path="/" element = {<TextBox showAlert = {showAlert} heading="Write your notes here" mode = {BarMode}></TextBox> }>   */}
+            <TextBox showAlert = {showAlert} heading="Write your notes here" mode = {BarMode}></TextBox>
+            {/* </Route>
+      </Routes> */}
       </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
