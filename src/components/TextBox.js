@@ -6,7 +6,7 @@ export default function TextBox(props) {
       let newText = text.toLowerCase();
       setText(newText);
       if (newText==='') {
-        props.showAlert("Enter Any Word To Convert","warning");
+        props.showAlert("No Word To Convert","warning");
       }
       else{
         props.showAlert("Converted To Lowercase","success");
@@ -54,11 +54,22 @@ export default function TextBox(props) {
       }
       let newText = arr.join(" ");
       setText(newText);
-      if (newText==='') {
+      if (newText===null) {
         props.showAlert("No Word To capitalized","warning");
       }
       else{
         props.showAlert("Words has been capitalized","success");
+      }
+    }
+
+    const handleExtraSpaces = ()=>{
+      let newText = text.split(/[ ]+/);
+      setText(newText.join(" "));
+      if (newText==='') {
+        props.showAlert("Enter and sentance ","warning");
+      }
+      else{
+        props.showAlert("Extra spaces has been removed","success");
       }
     }
 
@@ -74,10 +85,11 @@ export default function TextBox(props) {
         <h1 >{props.heading} </h1>
         <div className="mb-3">
         <textarea className="form-control my-3" style={{ background: props.mode==='dark'?'#343a40':'white',color:props.mode==='dark'?'white':'black'}}  value={text} placeholder="Enter text here..." onChange = {handleOnChange} id="mybox" rows="8"></textarea>
-          <div>
+           <div>
             <button className="btn btn-success mx-3 my-3"  onClick={handleUpClick}>Convert To Upper Case</button>
             <button className="btn btn-success mx-3 my-3"  onClick={handleLowClick}>Convert To Lower Case</button>
             <button className="btn btn-success mx-3 my-3"  onClick={handleCapitalizedClick}>Convert To Capitalized Case</button>
+            <button className="btn btn-success mx-3 my-3"  onClick={handleExtraSpaces}>Remove Extra Space</button>
             <button className="btn btn-success mx-3 my-3"  onClick={handleClearClick}>Clear Page</button>
             <button className="btn btn-success mx-3 my-3"  onClick={handleCopyClick}>Copy Text</button>
           </div>
