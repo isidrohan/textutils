@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import TextBox from './components/TextBox';
@@ -49,9 +49,9 @@ function App() {
       <Alert alert = {alert}></Alert>
       <div className="container my-3">
       {/* <Routes>
-            <Route path="/about" element = {<About></About>} >
-            </Route> */}
-            {/* <Route path="/" element = {<TextBox showAlert = {showAlert} heading="Write your notes here" mode = {BarMode}></TextBox> }>   */}
+            <Route path="/about" element = {<About mode = {BarMode}></About>} >
+            </Route>
+            <Route path="/" element = {<TextBox showAlert = {showAlert} heading="Write your notes here" mode = {BarMode}></TextBox> }>   */}
             <TextBox showAlert = {showAlert} heading="Write your notes here" mode = {BarMode}></TextBox>
             {/* </Route>
       </Routes> */}

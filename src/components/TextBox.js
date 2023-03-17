@@ -97,9 +97,9 @@ export default function TextBox(props) {
     </div>
     <div className="container" style={{ color: props.mode==='dark'?'white':'black'}} >
       <h2>Your Text Summary</h2>
-      <p>Number of words <b>{text.split(" ").length}</b>
+      <p>Number of words <b>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length}</b>
       <br /> Number of characters <b>{text.length}</b>  </p>
-      <p><b>{0.008 * text.split(" ").length}</b> Minute read</p>
+      <p><b>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length}</b> Minute read</p>
 
       <h2>Preview</h2>
       <p>{text}</p>
